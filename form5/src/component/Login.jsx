@@ -17,7 +17,7 @@ export function Login({ onLogin }) {
         });
     }
     function handleLogin(e) {
-        e.preventDefault();// Impedisce il comportamento predefinito del form
+        e.preventDefault();
         onLogin(data);
     }
     function handlereset() {
@@ -51,7 +51,7 @@ export function Login({ onLogin }) {
                 value={data.rememberme}
                 onChange={handleDataInput}
             />
-            <button type="submit" disabled={isLoginDisabled} onClick={handleLogin}>
+            <button name='login' disabled={!data.username || !data.password} onClick={() => onLogin(data)}>
                 Login
             </button>
             <button disabled={isLoginDisabled} onClick={handlereset}>
